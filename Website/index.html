@@ -13,6 +13,9 @@ Licence URI: https://www.os-templates.com/template-terms
   <title>Kiraric</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+    crossorigin="anonymous">
   <link href="layout/styles/layout.css" rel="stylesheet" type="text/css" media="all">
 </head>
 
@@ -40,15 +43,21 @@ Licence URI: https://www.os-templates.com/template-terms
   <!-- ################################################################################################ -->
   <!-- ################################################################################################ -->
   <!-- ################################################################################################ -->
-  <div class="wrapper bgded overlay" style="height:100vh; background-image:url('images/fundo.jpg');">
+  <div class="wrapper bgded overlay" style="height:100vh; background-image:url('images/fundo.jpg'); background-position:center">
     <header id="header" class="hoc clear">
-      <div id="logo" style="background-image:url('images/logo.png');" class="fl_left">        
+      <div id="logo"  class="fl_left">
         <h1>
-          <a href="index.html">Biciurbe</a>
+        <img style="width: auto;
+        max-width: 25%;
+        /* height: auto; */
+        margin: 0;
+        padding: 0;
+        border: none;
+        line-height: normal;
+        vertical-align: middle" src="images/logo.png" alt="">  
         </h1>
       </div>
       <nav id="mainav" class="fl_right">
-
         <!-- <li class="active">
             <a href="index.html">Home</a>
           </li>
@@ -58,9 +67,8 @@ Licence URI: https://www.os-templates.com/template-terms
           <li>
             <a href="#contacto">Contacto</a>
           </li> -->
-
-        <a style="border: 1px solid;padding: 10px;color:white; margin-top: 2%;position: absolute;" href="#">Login</a>
-
+        <!-- <a style="border: 1px solid;padding: 10px;color:white; margin-top: 2%;position: absolute;" href="#" data-toggle="modal" data-target="#exampleModal">Login</a> -->
+        <a style="border: 1px solid;padding: 10px;color:white; margin-top: 2%;position: absolute;" href="file:///D:/Paulo/Documents/GitHub/MadSummer/Website/planear.html" >Login</a>
 
       </nav>
     </header>
@@ -68,10 +76,38 @@ Licence URI: https://www.os-templates.com/template-terms
     <div id="pageintro" class="hoc clear">
       <!-- ################################################################################################ -->
       <article>
-        <h2 class="heading">Faça parte desta comunidade de ciciclistas na cidade </h2>
+        <h2 style="font-size: 3rem" class="heading">Faça parte desta comunidade de ciclistas na cidade! </h2>
 
+
+
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel" style="color:green">Registar/Entrar</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <form>
+                  <div class="form-group">
+                    <label for="exampleInputEmail1">Username</label>
+                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Introduza o seu username">
+                    
+                  </div>
+                </form>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+              </div>
+            </div>
+          </div>
+        </div>
         <footer>
-          <a class="btn" href="#">Registar</a>
+          <a class="btn" style="border-radius:33px;" href="#" data-toggle="modal" data-target="#exampleModal">Registar</a>
         </footer>
       </article>
       <!-- ################################################################################################ -->
@@ -95,7 +131,7 @@ Licence URI: https://www.os-templates.com/template-terms
         <li class="one_half first">
           <article class="infobox">
             <h6 class="heading">
-              <i class="fa fa-balance-scale"></i>
+              <i class="fa fa-car"></i>
               <a href="#">Trânsito</a>
             </h6>
             <p>É aqui que entra a BiciUrbe o site e aplicação que o vão ajudar a descobrir os percursos que os seus colegas
@@ -107,7 +143,7 @@ Licence URI: https://www.os-templates.com/template-terms
         <li class="one_half">
           <article class="infobox">
             <h6 class="heading">
-              <i class="fa fa-medium"></i>
+              <i class="fa fa-tachometer"></i>
               <a href="#">Velocidade</a>
             </h6>
             <p>Considerando a distância média das deslocações casa/trabalho de 10.1km e considerando uma velocidade média de
@@ -119,23 +155,24 @@ Licence URI: https://www.os-templates.com/template-terms
         <li class="one_half first">
           <article class="infobox">
             <h6 class="heading">
-              <i class="fa fa-motorcycle"></i>
+              <i class="fa fa-cloud"></i>
               <a href="#">Meteorologia</a>
             </h6>
-            <p>Duas criticas habituais são ou a muita chuva ou muito calor... no entanto no Porto, por exemplo, em 2017 
-              houve 245 dias sem chuva. E quanto ao calor, é verdade que de maio a setembro poderão haver algumas temperaturas
+            <p>Duas criticas habituais são ou a muita chuva ou muito calor... no entanto no Porto, por exemplo, em 2017 houve
+              245 dias sem chuva. E quanto ao calor, é verdade que de maio a setembro poderão haver algumas temperaturas
               elevadas mas a média anual é de 16,5º</p>
           </article>
         </li>
         <li class="one_half">
           <article class="infobox">
             <h6 class="heading">
-              <i class="fa fa-paperclip"></i>
+              <i class="fa fa-arrows"></i>
               <a href="#">Possibilidades</a>
             </h6>
             <p> Ver os percursos mais utilizados </p>
             <p>Consultar os seus percursos gravados</p>
             <p>Planear uma nova viagem</p>
+            
 
 
           </article>
@@ -235,7 +272,16 @@ Licence URI: https://www.os-templates.com/template-terms
   <script src="layout/scripts/jquery.min.js"></script>
   <script src="layout/scripts/jquery.backtotop.js"></script>
   <script src="layout/scripts/jquery.mobilemenu.js"></script>
-  <script src="layout/scripts/js.js"></script>
+
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
+
+
+
 </body>
 
 </html>
