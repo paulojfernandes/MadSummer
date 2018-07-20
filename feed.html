@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+
+
+<html lang="">
+
+<head>
+  <title>Biciurbe</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+
+  <!-- jQuery library -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+  <!-- Popper JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+
+  <!-- Latest compiled JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+
+  <link href="layout/styles/layout.css" rel="stylesheet" type="text/css" media="all">
+</head>
+
+<body id="top">
+  <div class="wrapper bgded overlay" style="height:200px; background-image:url('images/01.jpg');">
+    <div id="pageintro" class="hoc clear">
+
+    </div>
+  </div>
+
+  <a href="index.html">
+    <img id="logo" style="width: auto;
+    max-width: 20%;
+    position: absolute;
+    z-index: 2;
+    margin-top: -5%;
+    padding: 0;
+    border: none;
+    line-height: normal;
+    vertical-align: middle;
+    left:2%" src="images/logo.png" alt="">
+  </a>
+
+  <div class="wrapper row1">
+    <header id="header" class="hoc clear">
+      <nav id="mainav" style=" position: absolute;
+      top: -24px;
+      right: 5%;
+      z-index: 4;
+     " class="fl_right">
+        <ul class="clear">
+          <a href="feed.html">Feed</a>
+          <a href="planear.html">Planear Percurso</a>
+          <a href="gravados.html">Percurso Gravados</a>
+        </ul>
+      </nav>
+    </header>
+  </div>
+
+
+  <div class="wrapper row2" id="info">
+
+
+
+
+
+
+    <section class="hoc container clear">
+      <!-- ################################################################################################ -->
+      <div id="comments">
+        <h2>Feed</h2>
+        <ul id="feed">
+
+
+
+
+        </ul>
+      </div>
+      <!-- ################################################################################################ -->
+      <div class="clear"></div>
+    </section>
+
+
+
+
+
+
+  </div>
+
+
+
+  <!-- JAVASCRIPTS -->
+  <script src="layout/scripts/jquery.min.js"></script>
+  <script src="layout/scripts/jquery.backtotop.js"></script>
+  <script src="layout/scripts/jquery.mobilemenu.js"></script>
+
+
+  <!-- 
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAdEH8nMdxwAJevpSFXNL0RVxnlbs5fvNY&callback=initMap" async
+    defer></script> -->
+
+
+  <script>
+    $.get("https://mss3.herokuapp.com/feed", function (data) { // $("feed").append(data);
+      var data2 = ""
+      for (var i = 0; i < data.length; i++) {
+        //alert("Load was performed." + data[i].user);
+        data2 +=
+          '<li> <article> <header> <figure class="avatar"> <img src="images/demo/avatar.png" alt=""> </figure>       <address>  <a href="#">' +
+          data[i].user + '</a> </address> <time >' + data[i].data +
+          '</time> </header> <div class="comcont"> <div class="row"> </div> <div class="row"> <div class="col"> <img src="images/timer.png" alt=""> ' +
+          data[i].duracao + 'min </div> <div class="col"> <img src="images/distance.png" alt=""> ' + data[i].distancia +
+          ' </div> </div> <div class="row"> <div class="col"> <img src="images/speed.png" alt=""> ' + data[i].velocidade +
+          ' km/h </div> <div class="col"> <img src="images/graph.png" alt=""> ' +
+          data[i].altimetria + ' m </div> </div> </div> </article> </li>'
+      }
+      console.log(data2)
+
+      $('#feed').append(data2)
+    });
+  </script>
+</body>
+
+</html>

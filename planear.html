@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+
+<html lang="">
+
+<head>
+  <title>Biciurbe</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+
+  <!-- jQuery library -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+  <!-- Popper JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+
+  <!-- Latest compiled JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+
+  <link href="layout/styles/layout.css" rel="stylesheet" type="text/css" media="all">
+</head>
+
+<body id="top">
+  <div class="wrapper bgded overlay" style="height:200px; background-image:url('images/01.jpg');">
+    <div id="pageintro" class="hoc clear">
+
+    </div>
+  </div>
+<a href="index.html">
+  <img id="logo" style="width: auto;
+  max-width: 20%;
+  position: absolute;
+  z-index: 2;
+  margin-top: -5%;
+  padding: 0;
+  border: none;
+  line-height: normal;
+  vertical-align: middle;
+  left:2%" src="images/logo.png" alt="">
+</a>
+  <div class="wrapper row1">
+    <header id="header" class="hoc clear">
+      <nav id="mainav" style=" position: absolute;
+      top: -24px;
+      right: 5%;
+      z-index: 4;
+  " class="fl_right">
+        <ul class="clear">
+          <a href="feed.html">Feed</a>
+          <a href="planear.html">Planear Percurso</a>
+          <a href="gravados.html">Percurso Gravados</a>
+        </ul>
+      </nav>
+    </header>
+  </div>
+
+
+
+  <div class="wrapper row2" id="info">
+    <!-- <section class="hoc container clear">
+
+    </section> -->
+
+    <div class="row">
+
+
+      <!-- Multiple inputs -->
+      <form style="position:absolute; z-index:5; left:1%; top:1%">
+        <div class="input-group ">
+          <div class="input-group-prepend col-md-6">
+
+            <input type="text" list="list" id="inicio" class="form-control" placeholder="Inicio">
+            <datalist id="list">
+
+            </datalist>
+          </div>
+
+          <div class="input-group-prepend col-md-6">
+
+            <input type="text" list="list" id="fim" class="form-control" placeholder="Fim">
+            <datalist id="list">
+
+            </datalist>
+          </div>
+
+        </div>
+      </form>
+
+    </div>
+    <div style="height:90vh" id="map"></div>
+
+
+
+
+  </div>
+
+
+
+  <!-- JAVASCRIPTS -->
+  <script src="layout/scripts/jquery.min.js"></script>
+  <script src="layout/scripts/jquery.backtotop.js"></script>
+  <script src="layout/scripts/jquery.mobilemenu.js"></script>
+
+
+  <script>
+    var map;
+    var input = document.getElementById("inicio");
+    var input2 = document.getElementById("fim");
+    var directionsService 
+    var directionsDisplay
+
+    function initMap() {
+      // Get the input field
+      directionsService = new google.maps.DirectionsService();
+      directionsDisplay = new google.maps.DirectionsRenderer();
+      var options = {
+        componentRestrictions: {
+          country: 'pt'
+        }
+      };
+
+      autocomplete = new google.maps.places.Autocomplete(input, options);
+      autocomplete = new google.maps.places.Autocomplete(input2, options);
+
+      // Execute a function when the user releases a key on the keyboard
+
+      map = new google.maps.Map(document.getElementById('map'), {
+        center: {
+          lat: 41.3481587,
+          lng: -8.7502219
+        },
+
+        zoom: 15
+      });
+
+
+
+      directionsDisplay.setMap(map);
+    }
+
+    input2.addEventListener("keyup", function (event) {
+      // Cancel the default action, if needed
+      event.preventDefault();
+      // Number 13 is the "Enter" key on the keyboard
+      if (event.keyCode === 13) {
+        // Trigger the button element with a click
+         calcRoute()
+        alert(input.value)
+      }
+    });
+
+    function calcRoute() {
+      var start = document.getElementById('inicio').value;
+      var end = document.getElementById('fim').value;
+      var request = {
+        origin: start,
+        destination: end,
+        travelMode: 'DRIVING'
+      };
+      directionsService.route(request, function (result, status) {
+        if (status == 'OK') {
+          directionsDisplay.setDirections(result);
+        }
+      });
+    }
+  </script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAdEH8nMdxwAJevpSFXNL0RVxnlbs5fvNY&libraries=places&callback=initMap"
+    async defer></script>
+
+
+
+  <script>
+  </script>
+</body>
+
+</html>
